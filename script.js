@@ -1,6 +1,10 @@
 "use strict";
+
+//Using JS selectors:
 const cells = document.querySelectorAll(".cell");
 const restart = document.querySelector(".btn-restart");
+const suggestion = document.querySelector(".suggest");
+const text = document.querySelector(".text");
 
 // Module function for the game:
 const Game = (function () {
@@ -32,10 +36,8 @@ const Game = (function () {
         cellArray[e[2]].innerText === cellArray[e[1]].innerText &&
         cellArray[e[0]].innerText !== ""
       ) {
-        document.querySelector(".text").innerText = `Player ${
-          cellArray[e[0]].innerText
-        } Won!`;
-        document.querySelector(".sugg").classList.remove("display");
+        text.innerText = `Player ${cellArray[e[0]].innerText} Won!`;
+        suggestion.classList.remove("display");
         gameOver = true;
 
         //for line animation:
@@ -46,7 +48,6 @@ const Game = (function () {
   };
 
   //Game logic:
-
   cellArray.forEach((element) => {
     element.addEventListener("click", (e) => {
       if (element.innerText === "") {
@@ -55,11 +56,12 @@ const Game = (function () {
         checkWinner();
 
         if (!gameOver) {
-          document.querySelector(".text").innerText = `Player ${turn}'s Turn`;
+          text.innerText = `Player ${turn}'s Turn`;
         }
       }
     });
   });
+
   //Building Restart Button:
   restart.addEventListener("click", () => {
     cellArray.forEach((element) => {
@@ -68,6 +70,6 @@ const Game = (function () {
     turn = "X";
     gameOver = false;
     // document.querySelector(".line").style.width = "0px";
-    document.querySelector(".text").innerText = `Player ${turn}'s Turn`;
+    text.innerText = `Player ${turn}'s Turn`;
   });
 })();
