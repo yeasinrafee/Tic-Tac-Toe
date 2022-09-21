@@ -70,4 +70,20 @@ body {
 
 .btn {
   margin-top: 50px;
+  padding: 10px 20px;
+}
+.btn-restart {
+  padding: 10px 30px;
+  border: none;
+  font-size: 20px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.btn-restart:hover {
+  background-color: var(--font-color);
+  color: white;
 }
