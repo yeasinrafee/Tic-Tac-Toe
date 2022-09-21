@@ -1,5 +1,8 @@
 "use strict";
 const cells = document.querySelectorAll(".cell");
+const restart = document.querySelector(".btn-restart");
+
+// Module function for the game:
 const Game = (function () {
   const cellArray = [];
   cells.forEach((cell) => cellArray.push(cell));
@@ -32,25 +35,39 @@ const Game = (function () {
         document.querySelector(".text").innerText = `Player ${
           cellArray[e[0]].innerText
         } Won!`;
+        document.querySelector(".sugg").classList.remove("display");
         gameOver = true;
+
+        //for line animation:
+        //document.querySelector(".line").style = "200px";
+        // document.querySelector(".line").style.transform = `translate(${e[]}px, ${e[]}px) rotate(${e[]}deg)`;
       }
     });
   };
 
   //Game logic:
+
   cellArray.forEach((element) => {
-    element.addEventListener("click", () => {
+    element.addEventListener("click", (e) => {
       if (element.innerText === "") {
         element.innerText = turn;
         turn = changeTurn();
         checkWinner();
+
         if (!gameOver) {
           document.querySelector(".text").innerText = `Player ${turn}'s Turn`;
         }
       }
     });
   });
-
-  console.log(cellArray[0].getAttribute("data-set"));
-  console.log(cellArray[0].innerText);
+  //Building Restart Button:
+  restart.addEventListener("click", () => {
+    cellArray.forEach((element) => {
+      element.innerText = "";
+    });
+    turn = "X";
+    gameOver = false;
+    // document.querySelector(".line").style.width = "0px";
+    document.querySelector(".text").innerText = `Player ${turn}'s Turn`;
+  });
 })();
