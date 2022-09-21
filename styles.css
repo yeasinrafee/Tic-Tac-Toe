@@ -5,11 +5,9 @@
   padding: 0;
   margin: 0;
 }
-
 :root {
-  /* --background-color: rgb(155, 252, 252); */
   --background-color: rgb(165, 235, 165);
-  /* --font-color: rgb(255, 252, 252); */
+  --font-color-white: rgb(255, 252, 252);
   --font-color: rgb(64, 79, 64);
 }
 
@@ -46,7 +44,7 @@ body {
   justify-content: center;
 }
 .cell:hover {
-  background-color: rgb(177, 246, 177);
+  background-color: rgb(141, 222, 141);
 }
 
 .bt-0 {
@@ -85,5 +83,19 @@ body {
 }
 .btn-restart:hover {
   background-color: var(--font-color);
-  color: white;
+  color: var(--font-color-white);
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  color: var(--font-color-white);
+  font-size: 1.2rem;
 }
